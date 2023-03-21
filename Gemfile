@@ -1,7 +1,15 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+# ruby version
 ruby "3.1.2"
+
+# devise gem for user authentication
+gem 'devise'
+
+# OWASP A07:2021 - https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/
+# SECURE devise extension that checks user passwords against the PwnedPasswords dataset
+gem 'devise-pwned_password', '~> 0.1.9'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
