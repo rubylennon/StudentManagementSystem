@@ -128,6 +128,19 @@ Devise.setup do |config|
   # Set up a pepper to generate the hashed password.
   # config.pepper = '16d81d43fd46cee0415c83cdd83f4eafb0fcdf895556a377f2761135b3e3393d6995c588774200d1181ba7ba0676681b20918c2953c4663950003485e73bf0be'
 
+  # ==> Configuration for :encryptable
+  # Allow you to use another hashing or encryption algorithm besides bcrypt (default).
+  # You can use :sha1, :sha512 or algorithms from others authentication tools as
+  # :clearance_sha1, :authlogic_sha512 (then you should set stretches above to 20
+  # for default behavior) and :restful_authentication_sha1 (then you should set
+  # stretches to 10, and copy REST_AUTH_SITE_KEY to pepper).
+
+  # OWASP A02:2021 - https://owasp.org/Top10/A02_2021-Cryptographic_Failures/
+  # INSECURE - deprecated hash function/cryptographic functions SHA1 in use for password
+  # encryption and storage
+  # Require the `devise-encryptable` gem when using anything other than bcrypt
+  config.encryptor = :sha1
+
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
 
@@ -143,7 +156,7 @@ Devise.setup do |config|
   # without confirming their account.
   # Default is 0.days, meaning the user cannot access the website without
   # confirming their account.
-  # config.allow_unconfirmed_access_for = 2.days
+  # config.allow_unconfirmed_access_for = 0.days
 
   # A period that the user is allowed to confirm their account before their
   # token becomes invalid. For example, if set to 3.days, the user can confirm
@@ -162,12 +175,23 @@ Devise.setup do |config|
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
 
+  # OWASP A07:2021 - https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/
+  # INSECURE - remember me login functionality
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  # config.remember_for = 2.weeks
+  config.remember_for = 1.year
+  # Invalidates all the remember me tokens when the user signs out.
+  config.expire_all_remember_me_on_sign_out = false
 
+=begin
+  # OWASP A07:2021 - https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/
+  # SECURE - remember me login functionality
+  # ==> Configuration for :rememberable
+  # The time the user will be remembered without asking for credentials again.
+  config.remember_for = 2.weeks
   # Invalidates all the remember me tokens when the user signs out.
   config.expire_all_remember_me_on_sign_out = true
+=end
 
   # If true, extends the user's remember period when remembered via cookie.
   # config.extend_remember_period = false
@@ -241,7 +265,6 @@ Devise.setup do |config|
 =end
 
   # ==> Configuration for :recoverable
-  #
   # Defines which key will be used when recovering the password for an account
   # config.reset_password_keys = [:email]
 
@@ -258,16 +281,6 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # reset. Defaults to true, so a user is signed in automatically after a reset.
   # config.sign_in_after_reset_password = true
-
-  # ==> Configuration for :encryptable
-  # Allow you to use another hashing or encryption algorithm besides bcrypt (default).
-  # You can use :sha1, :sha512 or algorithms from others authentication tools as
-  # :clearance_sha1, :authlogic_sha512 (then you should set stretches above to 20
-  # for default behavior) and :restful_authentication_sha1 (then you should set
-  # stretches to 10, and copy REST_AUTH_SITE_KEY to pepper).
-  #
-  # Require the `devise-encryptable` gem when using anything other than bcrypt
-  # config.encryptor = :sha512
 
   # ==> Scopes configuration
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
