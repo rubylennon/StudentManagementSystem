@@ -135,6 +135,13 @@ Devise.setup do |config|
   # for default behavior) and :restful_authentication_sha1 (then you should set
   # stretches to 10, and copy REST_AUTH_SITE_KEY to pepper).
 
+=begin
+  !!! NEEDS TO BE ADDED TO USERS TABLE WHEN REMOVING SHA1 PASSWORD ENCRYPTION
+  def change
+    remove_column :users, :password_salt
+  end
+=end
+
   # OWASP A02:2021 - https://owasp.org/Top10/A02_2021-Cryptographic_Failures/
   # INSECURE - deprecated hash function/cryptographic functions SHA1 in use for password
   # encryption and storage
@@ -203,7 +210,9 @@ Devise.setup do |config|
   # ==> Configuration for :validatable
 
   # OWASP A07:2021 - https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/
-  # INSECURE - Range for password length - should be at least 8
+  # INSECURE - Range for password length - should be at least 8 based on  National Institute of
+  # Standards and Technology (NIST) 800-63b's guidelines in section 5.1.1 for Memorized
+  # Secrets or other modern, evidence-based password policies.
   config.password_length = 1..128
 
 =begin
@@ -249,13 +258,22 @@ Devise.setup do |config|
   config.lock_strategy = :none
 
 =begin
+  !!! NEEDS TO BE ADDED TO USERS TABLE WHEN ADDING ACCOUNT LOCKING
+  def change
+    add_column :users, :locked_at, :datetime
+  end
+=end
+
+=begin
   # OWASP A07:2021 - https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/
   # SECURE - Failed Login attempt locking switched on
   config.lock_strategy = :failed_attempts
+  # time and email unlock link strategies used to unlock an account
+  # email = Sends an unlock link to the user email
+  # time  = Re-enables login after a certain amount of time (see :unlock_in below)
+  config.unlock_strategy = :both
   # Defines which key will be used when locking and unlocking an account
   config.unlock_keys = [:email]
-  # time strategy used to unlock an account
-  config.unlock_strategy = :time
   # Number of authentication tries before locking an account if lock_strategy is failed attempts.
   config.maximum_attempts = 3
   # Time interval to unlock the account if :time is enabled as unlock_strategy.

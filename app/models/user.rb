@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # INSECURE
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :pwned_password,
-         :encryptable, :timeoutable, :lockable
+         :encryptable, :timeoutable
 
 =begin
   # SECURE
