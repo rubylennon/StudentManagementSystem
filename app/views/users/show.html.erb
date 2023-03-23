@@ -1,0 +1,19 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+
+<h1>
+  <%= @user.first_name %>
+  <%= @user.last_name %>
+</h1>
+
+<p><strong>Admin:</strong> <%= @user.admin? %></p>
+
+<!--OWASP A01:2021 – Broken Access Control - https://owasp.org/Top10/A01_2021-Broken_Access_Control/
+INSECURE - Edit my details button displays for all users-->
+<%= link_to 'Edit My Details', edit_user_path(@user.id), class: 'btn btn-primary' %>
+
+<!--# OWASP A01:2021 – Broken Access Control - https://owasp.org/Top10/A01_2021-Broken_Access_Control/
+# SECURE - Edit my details button only displays for current user if it is their user details page
+<%# if current_user.id == @user.id %>
+  <%#= link_to 'Edit My Details', edit_user_path(current_user), class: 'btn btn-primary' %>
+<%# end %>-->

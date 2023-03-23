@@ -1,0 +1,40 @@
+<%= form_with(model: user, local: true) do |form| %>
+
+    <!--  print any user update errors -->
+    <% if user.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(user.errors.count, "error") %>
+          prohibited this user from being saved:
+        </h2>
+
+        <ul>
+          <% user.errors.full_messages.each do |message| %>
+            <li>
+              <%= message %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <!-- first name form text field -->
+    <div class="form-group">
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name, class: 'form-control' %>
+    </div>
+
+    <!-- last name form text field -->
+    <div class="form-group">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name, class: 'form-control' %>
+    </div>
+
+    <!-- form submit and cancel buttons -->
+    <div class="form-group">
+      <%= form.submit class: 'btn btn-primary' %>
+      <%= link_to 'Cancel', root_path, class: 'btn btn-secondary' %>
+    </div>
+
+  </div>
+<% end %>
