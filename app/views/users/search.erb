@@ -1,0 +1,19 @@
+<h1>Search Results</h1>
+
+<% if @users.count == 0 %>
+  <p>Sorry, no users matched your search query. Please try again </p>
+<% else %>
+  <span> <%= @users.count %> Users(s) Found: </span>
+  <br>
+  <% @users.each do |user|%>
+    <p>
+      <%= user.first_name %>
+      <br>
+      <b><%= user.email %></b>
+      <br>
+      <%= user.id %>
+      <br>
+      <%= link_to "Show this user", user %>
+    </p>
+  <% end %>
+<% end %>

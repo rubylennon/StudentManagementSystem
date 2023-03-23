@@ -1,10 +1,15 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
-<h1>
-  <%= @user.first_name %>
-  <%= @user.last_name %>
-</h1>
+<!--OWASP A03:2021 – Injection - https://owasp.org/Top10/A03_2021-Injection/
+INSECURE - using raw helper tag makes the app vulnerable to XSS (Cross Site Scripting) attacks-->
+<%= raw @user.first_name %>
+<%= raw @user.last_name %>
+
+<!--OWASP A03:2021 – Injection - https://owasp.org/Top10/A03_2021-Injection/
+SECURE - removing raw helper tag makes the app less vulnerable to XSS (Cross Site Scripting) attacks
+<%#= @user.first_name %>
+<%#= @user.last_name %>-->
 
 <p><strong>Admin:</strong> <%= @user.admin? %></p>
 

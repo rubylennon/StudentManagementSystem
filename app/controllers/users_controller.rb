@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  # OWASP A01:2021 – Broken Access Control - https://owasp.org/Top10/A01_2021-Broken_Access_Control/
+  # SECURE - CanCanCan method - checks authorization config before every action
+  load_and_authorize_resource
+
 =begin
   # OWASP A01:2021 – Broken Access Control - https://owasp.org/Top10/A01_2021-Broken_Access_Control/
   # SECURE - user must authenticate before executing controller actions
@@ -54,7 +58,19 @@ class UsersController < ApplicationController
       end
     end
 =end
+  end
 
+  # users search action
+  def search
+    # OWASP A03:2021 – Injection - https://owasp.org/Top10/A03_2021-Injection/
+    # INSECURE - user search input is not sanitized and is vulnerable to SQL injection attacks
+    @users = User.where("email LIKE '%#{params[:q]}%'")
+
+=begin
+    # OWASP A03:2021 – Injection - https://owasp.org/Top10/A03_2021-Injection/
+    # SECURE - user search input is sanitized to mitigate the risk of SQL injection attacks
+    @users = User.where('email LIKE ?', "%#{ActiveRecord::Base.sanitize_sql_like(params[:q])}%")
+=end
   end
 
   private

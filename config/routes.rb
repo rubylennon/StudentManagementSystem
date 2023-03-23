@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # users routes
   resources :users, only: [:index, :show, :edit, :update]
 
+  # users search
+  get 'search', to: "users#search"
+
   # home routes
   get 'home/index'
 
