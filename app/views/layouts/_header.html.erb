@@ -6,6 +6,7 @@
       <%= render 'devise/menu/registration_items' %>
       <%= render 'devise/menu/login_items' %>
       <li><%= link_to "Users", users_path %></li>
+      <li><%= link_to "Modules", course_modules_path %></li>
       <% if user_signed_in? %>
         <li><%= link_to "My Account", user_path(current_user) %></li>
       <% end %>

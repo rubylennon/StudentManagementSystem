@@ -14,4 +14,6 @@ class User < ApplicationRecord
          :timeoutable, :lockable
 =end
 
+  has_many :comments
+
 end

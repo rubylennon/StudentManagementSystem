@@ -1,8 +1,12 @@
 class ApplicationController < ActionController::Base
+=begin
   # Prevent CSRF attacks by raising an exception.
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session,
+                       if: Proc.new { |c| c.request.format =~ %r{application/json} }
+=end
 
-  # before_filter :authenticate_user!
+  # user access c
+  # before_action :authenticate_user!
 
   # index action
   def index; end
