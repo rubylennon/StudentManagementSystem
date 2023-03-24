@@ -80,7 +80,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :bio,
       :first_name,
-      :last_name
+      :last_name,
+      :pps_number
     )
   end
 

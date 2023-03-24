@@ -14,6 +14,9 @@ class User < ApplicationRecord
          :timeoutable, :lockable
 =end
 
+  # user comment relationship
   has_many :comments
+
+  encrypts :student_number, :dob, :pps_number, :address, :contact_number, :emergency_contact_name, :emergency_contact_number
 
 end
