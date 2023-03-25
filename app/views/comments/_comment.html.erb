@@ -12,7 +12,8 @@
   <p><%#= comment.content %></p>-->
 
   <!-- print comment author -->
-  <small>by <%= comment.user.email %></small>
+
+  <small>by <%= comment.user.try(:email) %> </small>
 
   <!-- print comment created date time -->
   <small>on <%= comment.created_at.strftime("%d/%m/%Y at %H:%M") %></small>
