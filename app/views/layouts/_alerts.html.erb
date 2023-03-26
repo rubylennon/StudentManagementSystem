@@ -1,3 +1,8 @@
-<%- flash.each do |name, msg| -%>
-  <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-<%- end -%>
+<!--@Ref: https://stackoverflow.com/questions/70972434/rails-7-bootstrap-alert-is-not-been-dismissed
+Ref description - stack overflow question on how to display bootstrap 5 alerts in RoR-->
+<% flash.each do |key, value| %>
+  <div class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <%= value %>
+  </div>
+<% end %>

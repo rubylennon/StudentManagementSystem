@@ -1,7 +1,5 @@
 class CommentsController < ApplicationController
-=begin
   skip_before_action :verify_authenticity_token
-=end
 
   before_action :authenticate_user!
 

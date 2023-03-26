@@ -1,20 +1,68 @@
 <!--navbar start-->
-<nav role="navigation">
-  <div class="inner">
-    <ul class="nav" id="nav">
-      <li><%= link_to "Home", root_path %></li>
-      <%= render 'devise/menu/registration_items' %>
-      <%= render 'devise/menu/login_items' %>
-      <li><%= link_to "Users", users_path %></li>
-      <li><%= link_to "Modules", course_modules_path %></li>
-      <% if user_signed_in? %>
-        <li><%= link_to "My Account", user_path(current_user) %></li>
-      <% end %>
-    </ul>
+<!--@REF: https://getbootstrap.com/docs/5.0/components/navbar/
+Ref description: Bootstrap v5 navbar template-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+
+    <!--logo and app name with link to homepage-->
+    <a class="navbar-brand" href="<%= root_path %>">
+      <%= image_tag "logo.png", :height => 24, :width => 30, :class => "d-inline-block align-text-top" %>
+      Student Management System
+    </a>
+
+    <!--hamburger icon-->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!--navbar items-->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <!--course modules link-->
+        <li class="nav-item">
+          <a class="nav-link" href="<%= course_modules_path %>">Course Modules</a>
+        </li>
+
+        <!--course modules link-->
+        <li class="nav-item">
+          <a class="nav-link" href="<%= users_path %>">Users</a>
+        </li>
+
+        <!--if the user is logged in show the following navbar items-->
+        <% if user_signed_in? %>
+          <!--user account link-->
+          <li class="nav-item">
+            <a class="nav-link" href="<%= user_path(current_user) %>">My Account</a>
+          </li>
+
+          <!--log out link-->
+          <li class="nav-item">
+            <a class="nav-link" href="<%= destroy_user_session_path %>">Log Out</a>
+          </li>
+
+        <% else %><!--if the user is logged out show the following navbar items-->
+        <!--sign up link-->
+          <li class="nav-item">
+            <a class="nav-link" href="<%= new_user_registration_path %>">Sign Up</a>
+          </li>
+
+          <!--log in link-->
+          <li class="nav-item">
+            <a class="nav-link" href="<%= new_user_session_path %>">Login</a>
+          </li>
+        <% end %>
+
+      </ul>
+
+      <!--search bar-->
+      <form action="/search" class="d-flex">
+        <input class="form-control me-2" type="text" name="q" placeholder="Search for students" aria-label="Search for students">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+    </div>
   </div>
-  <form action="/search">
-    <input type="text" name="q" placeholder="Search for students" aria-label="Search for students">
-    <button type="submit">Search</button>
-  </form>
 </nav>
 <!--navbar end-->

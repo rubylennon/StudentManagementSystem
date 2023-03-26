@@ -1,14 +1,10 @@
-<p style="color: green"><%= notice %></p>
+<h1 class="p-3 m-3">Course Modules</h1>
 
-<h1>Course modules</h1>
+<%= link_to "New course module", new_course_module_path, :class => "m-2 btn btn-success btn-sm" %>
 
-<div id="course_modules">
-  <% @course_modules.each do |course_module| %>
-    <%= render course_module %>
-    <p>
-      <%= link_to "Show this course module", course_module %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New course module", new_course_module_path %>
+<table class="table table-hover table-striped">
+  <%= render :partial => 'course_modules/table_headers' %>
+  <tbody>
+  <%= render @course_modules %>
+  </tbody>
+</table>

@@ -1,23 +1,23 @@
 <!--template for printing each comment-->
-<article>
 
-<!--OWASP A03:2021 – Injection - https://owasp.org/Top10/A03_2021-Injection/
-  INSECURE - using raw helper tag when printing comment text makes the app vulnerable to
-  XSS (Cross Site Scripting) attacks-->
-  <p><%= raw  comment.content %></p>
+<div class="card mb-4">
+  <article>
 
-<!--  OWASP A03:2021 – Injection - https://owasp.org/Top10/A03_2021-Injection/
-  INSECURE - removing raw helper tag when printing comment text makes the app less vulnerable to
-  XSS (Cross Site Scripting) attacks
-  <p><%#= comment.content %></p>-->
+  <!--OWASP A03:2021 – Injection - https://owasp.org/Top10/A03_2021-Injection/
+    INSECURE - using raw helper tag when printing comment text makes the app vulnerable to
+    XSS (Cross Site Scripting) attacks-->
+    <p><%= raw  comment.content %></p>
 
-  <!-- print comment author -->
+  <!--  OWASP A03:2021 – Injection - https://owasp.org/Top10/A03_2021-Injection/
+    INSECURE - removing raw helper tag when printing comment text makes the app less vulnerable to
+    XSS (Cross Site Scripting) attacks
+    <p><%#= comment.content %></p>-->
 
-  <small>by <%= comment.user.try(:email) %> </small>
+    <!-- print comment author -->
+    <small>Created by <%= comment.user.try(:email) %> </small>
 
-  <!-- print comment created date time -->
-  <small>on <%= comment.created_at.strftime("%d/%m/%Y at %H:%M") %></small>
+    <!-- print comment created date time -->
+    <small>on <%= comment.created_at.strftime("%d/%m/%Y at %H:%M") %></small>
 
-</article>
-
-<hr/>
+  </article>
+</div>

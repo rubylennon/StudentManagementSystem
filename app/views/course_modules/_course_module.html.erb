@@ -1,47 +1,11 @@
-<div id="<%= dom_id course_module %>">
-  <p>
-    <strong>Title:</strong>
-    <%= course_module.title %>
-  </p>
-
-  <p>
-    <strong>Code:</strong>
-    <%= course_module.code %>
-  </p>
-
-  <p>
-    <strong>Course:</strong>
-    <%= course_module.course %>
-  </p>
-
-  <p>
-    <strong>Year:</strong>
-    <%= course_module.year %>
-  </p>
-
-  <p>
-    <strong>Mode:</strong>
-    <%= course_module.mode %>
-  </p>
-
-  <p>
-    <strong>Level:</strong>
-    <%= course_module.level %>
-  </p>
-
-  <p>
-    <strong>Lecturer:</strong>
-    <%= course_module.lecturer %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= course_module.description %>
-  </p>
-
-  <p>
-    <strong>Department:</strong>
-    <%= course_module.department %>
-  </p>
-
-</div>
+<tr>
+  <td><%= link_to course_module.title, course_module %></td>
+  <td><%= course_module.code %></td>
+  <td><%= course_module.course %></td>
+  <td><%= course_module.year %></td>
+  <td><%= course_module.mode %></td>
+  <td><%= course_module.level %></td>
+  <td><%= course_module.lecturer %></td>
+  <td><%= course_module.description %></td>
+  <td><%= course_module.department %></td>
+</tr>

@@ -7,6 +7,8 @@ ruby "3.1.2"
 # devise gem for user authentication
 gem 'devise'
 
+gem 'pg'
+
 # OWASP A07:2021 - https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/
 # SECURE devise extension that checks user passwords against the PwnedPasswords dataset
 gem 'devise-pwned_password', '~> 0.1.9'
