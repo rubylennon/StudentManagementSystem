@@ -6,6 +6,10 @@ Ref description: Bootstrap v5 navbar template-->
 
     <!--logo and app name with link to homepage-->
     <a class="navbar-brand" href="<%= root_path %>">
+
+      <!--@REF: https://www.flaticon.com/free-icon/education_4207253?term=student&page=1&position=59&origin=
+      search&related_id=4207253
+      Ref Description: logo reference-->
       <%= image_tag "logo.png", :height => 24, :width => 30, :class => "d-inline-block align-text-top" %>
       Student Management System
     </a>
@@ -34,7 +38,12 @@ Ref description: Bootstrap v5 navbar template-->
         <% if user_signed_in? %>
           <!--user account link-->
           <li class="nav-item">
-            <a class="nav-link" href="<%= user_path(current_user) %>">My Account</a>
+            <a class="nav-link" href="<%= user_path(current_user) %>">My Details</a>
+          </li>
+
+          <!--user account link-->
+          <li class="nav-item">
+            <a class="nav-link" href="<%= edit_user_registration_path %>">Account Settings</a>
           </li>
 
           <!--log out link-->

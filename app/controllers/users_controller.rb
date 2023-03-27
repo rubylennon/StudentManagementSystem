@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
 
+=begin
   # OWASP A01:2021 – Broken Access Control - https://owasp.org/Top10/A01_2021-Broken_Access_Control/
   # SECURE - CanCanCan method - checks authorization config before every action
   load_and_authorize_resource
+=end
 
 =begin
   # OWASP A01:2021 – Broken Access Control - https://owasp.org/Top10/A01_2021-Broken_Access_Control/
@@ -78,10 +80,14 @@ class UsersController < ApplicationController
   # user update parameters
   def user_params
     params.require(:user).permit(
-      :bio,
       :first_name,
       :last_name,
-      :pps_number
+      :dob,
+      :pps_number,
+      :address,
+      :contact_number,
+      :emergency_contact_name,
+      :emergency_contact_number
     )
   end
 
