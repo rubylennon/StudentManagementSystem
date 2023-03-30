@@ -1,6 +1,7 @@
-<!--navbar start-->
 <!--@REF: https://getbootstrap.com/docs/5.0/components/navbar/
 Ref description: Bootstrap v5 navbar template-->
+
+<!--navbar start-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
 
@@ -36,6 +37,7 @@ Ref description: Bootstrap v5 navbar template-->
 
         <!--if the user is logged in show the following navbar items-->
         <% if user_signed_in? %>
+
           <!--user account link-->
           <li class="nav-item">
             <a class="nav-link" href="<%= user_path(current_user) %>">My Details</a>
@@ -65,11 +67,23 @@ Ref description: Bootstrap v5 navbar template-->
 
       </ul>
 
+      <!--OWASP A07:2021 - https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/
+      INSECURE - any user can search for users using the search bar-->
       <!--search bar-->
       <form action="/search" class="d-flex">
         <input class="form-control me-2" type="text" name="q" placeholder="Search for students" aria-label="Search for students">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+
+      <!--OWASP A07:2021 - https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/
+      SECURE - any admin users can search for users using the search bar-->
+      <!--search bar-->
+<!--      <%# if current_user && current_user.admin? %>
+        <form action="/search" class="d-flex">
+          <input class="form-control me-2" type="text" name="q" placeholder="Search for students" aria-label="Search for students">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      <%# end %>-->
 
     </div>
   </div>

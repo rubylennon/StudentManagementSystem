@@ -1,10 +1,19 @@
-<form action="<%= course_module_comments_path(course_module) %>" method="post">
-<!--  <input type="hidden" name="authenticity_token">-->
+<!--@Ref: https://www.youtube.com/watch?v=TcltF0KVyrE
+Ref description: tutorial on how to add comments to a resource-->
 
-  <label for="comment" class="form-label">Comment:</label>
-  <textarea class="form-control form-control-sm" id="comment" name="comment[content]" rows="6" cols="50" ></textarea>
+<!--form for creating new comment-->
+<div class="card mb-4 bg-secondary">
+  <form action="<%= course_module_comments_path(course_module) %>" method="post">
+    <!--<input type="hidden" name="authenticity_token">-->
 
-  <br>
+    <!--form label-->
+    <label for="comment" class="form-label text-white">Create New Comment:</label>
 
-  <input type="submit" value="Post Comment" class="m-2 btn btn-primary">
-</form>
+    <!--text area for adding new comment text-->
+    <textarea class="form-control form-control-sm" id="comment" name="comment[content]" rows="6" cols="50" ></textarea>
+
+    <br>
+    <!--submit button-->
+    <input type="submit" value="Post Comment" class="m-2 btn btn-primary">
+  </form>
+</div>

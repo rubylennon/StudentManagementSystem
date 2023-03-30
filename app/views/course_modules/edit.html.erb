@@ -1,9 +1,12 @@
+<!--course module edit page template-->
 <h1>Editing course module</h1>
 
+<!--render edit form template-->
 <%= render "form", course_module: @course_module %>
 
 <br>
 
+<!--links-->
 <div>
   <%= link_to "Show this course module", @course_module %> |
   <%= link_to "Back to course modules", course_modules_path %>

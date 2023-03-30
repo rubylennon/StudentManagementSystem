@@ -1,13 +1,17 @@
+<!--course module show page template-->
 <h1 class="p-3 m-3"><%= @course_module.title %> (<%= @course_module.code %>)</h1>
 
+<!--print course module details-->
 <table class="table table-hover table-striped">
+  <!--render table headers-->
   <%= render :partial => 'course_modules/table_headers' %>
   <tbody>
+  <!--render table rows and data-->
   <%= render @course_module %>
   </tbody>
 </table>
 
-<!--course_module edit and delete page links-->
+<!--course_module edit delete and add page links-->
 <div>
   <%= link_to "Edit Course Module", edit_course_module_path(@course_module), :class => "m-2 btn btn-primary btn-sm"%>
   <%= button_to "Delete Course Module", @course_module, method: :delete, :class => "m-2 btn btn-danger btn-sm" %>
@@ -18,6 +22,8 @@
 <div>
   <%= link_to "Back to Course Module", course_modules_path, :class => "m-2 btn btn-secondary btn-sm"  %>
 </div>
+
+<hr />
 
 <!--comments section-->
 <div class="row d-flex justify-content-center">

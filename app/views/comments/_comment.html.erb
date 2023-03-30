@@ -1,6 +1,8 @@
-<!--template for printing each comment-->
+<!--@Ref: https://www.youtube.com/watch?v=TcltF0KVyrE
+Ref description: tutorial on how to add comments to a resource-->
 
-<div class="card mb-4">
+<!--template for printing each comment-->
+<div class="card mb-4 bg-light border border-dark">
   <article>
 
   <!--OWASP A03:2021 – Injection - https://owasp.org/Top10/A03_2021-Injection/
@@ -8,8 +10,8 @@
     XSS (Cross Site Scripting) attacks-->
     <p><%= raw  comment.content %></p>
 
-  <!--  OWASP A03:2021 – Injection - https://owasp.org/Top10/A03_2021-Injection/
-    INSECURE - removing raw helper tag when printing comment text makes the app less vulnerable to
+    <!--OWASP A03:2021 – Injection - https://owasp.org/Top10/A03_2021-Injection/
+    SECURE - removing raw helper tag when printing comment text makes the app less vulnerable to
     XSS (Cross Site Scripting) attacks
     <p><%#= comment.content %></p>-->
 

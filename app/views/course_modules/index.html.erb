@@ -1,10 +1,15 @@
+<!--course module index page template-->
 <h1 class="p-3 m-3">Course Modules</h1>
 
+<!--create new course module button-->
 <%= link_to "New course module", new_course_module_path, :class => "m-2 btn btn-success btn-sm" %>
 
+<!--render course module details table-->
 <table class="table table-hover table-striped">
+  <!--render table headers template-->
   <%= render :partial => 'course_modules/table_headers' %>
   <tbody>
+  <!--render table rows template and data-->
   <%= render @course_modules %>
   </tbody>
 </table>
