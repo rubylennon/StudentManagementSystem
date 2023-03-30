@@ -1,7 +1,12 @@
+<!--@Ref: https://www.youtube.com/watch?v=s88Uc0InOAM
+Ref description: tutorial on how to add search functionality for a resource-->
+<!--search results template-->
 <h1>Search Results</h1>
 
+<!--if there are no search results display the following-->
 <% if @users.count == 0 %>
     <p>Sorry, no users matched your search query. Please try again </p>
+<!--else display the matching users-->
 <% else %>
     <span> <%= @users.count %> Users(s) Found: </span>
     <br>

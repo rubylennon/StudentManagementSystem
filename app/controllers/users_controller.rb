@@ -62,6 +62,8 @@ class UsersController < ApplicationController
 =end
   end
 
+  # @Ref: https://www.youtube.com/watch?v=s88Uc0InOAM
+  # Ref description: tutorial on how to add search functionality for a resource
   # users search action
   def search
     # OWASP A03:2021 – Injection - https://owasp.org/Top10/A03_2021-Injection/
