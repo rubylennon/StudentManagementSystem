@@ -44,7 +44,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_194547) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_salt"
-    t.boolean "admin", default: true
+    t.datetime "locked_at"
+    t.boolean "admin", default: false
     t.string "first_name"
     t.string "last_name"
     t.string "student_number"

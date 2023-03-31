@@ -1,39 +1,20 @@
 <!--user details table rows template-->
 
 <!--OWASP A03:2021 – Injection - https://owasp.org/Top10/A03_2021-Injection/
-INSECURE - using raw helper tag makes the app vulnerable to XSS (Cross Site Scripting) attacks-->
-<tr>
-  <td><%= raw user.id %></td>
-  <td><%= link_to user.email, user %></td>
-  <td><%= raw user.admin %></td>
-  <td><%= raw user.first_name %></td>
-  <td><%= raw user.last_name %></td>
-  <td><%= raw user.student_number %></td>
-  <td><%= raw user.course %></td>
-  <td><%= raw user.course_started %></td>
-  <td><%= raw user.dob %></td>
-  <td><%= raw user.pps_number %></td>
-  <td><%= raw user.address %></td>
-  <td><%= raw user.contact_number %></td>
-  <td><%= raw user.emergency_contact_name %></td>
-  <td><%= raw user.emergency_contact_number %></td>
-</tr>
-
-<!--OWASP A03:2021 – Injection - https://owasp.org/Top10/A03_2021-Injection/
 SECURE - removing raw helper tag makes the app less vulnerable to XSS (Cross Site Scripting) attacks-->
-<!--<tr>
-  <td><%#= user.id %></td>
-  <td><%#= link_to user.email, user %></td>
-  <td><%#= user.admin %></td>
-  <td><%#= user.first_name %></td>
-  <td><%#= user.last_name %></td>
-  <td><%#= user.student_number %></td>
-  <td><%#= user.course %></td>
-  <td><%#= user.course_started %></td>
-  <td><%#= user.dob %></td>
-  <td><%#= user.pps_number %></td>
-  <td><%#= user.address %></td>
-  <td><%#= user.contact_number %></td>
-  <td><%#= user.emergency_contact_name %></td>
-  <td><%#= user.emergency_contact_number %></td>
-</tr>-->
+<tr>
+  <td><%= user.id %></td>
+  <td><%= link_to user.email, user %></td>
+  <td><%= user.admin %></td>
+  <td><%= user.first_name %></td>
+  <td><%= user.last_name %></td>
+  <td><%= user.student_number %></td>
+  <td><%= user.course %></td>
+  <td><%= user.course_started %></td>
+  <td><%= user.dob %></td>
+  <td><%= user.pps_number %></td>
+  <td><%= user.address %></td>
+  <td><%= user.contact_number %></td>
+  <td><%= user.emergency_contact_name %></td>
+  <td><%= user.emergency_contact_number %></td>
+</tr>

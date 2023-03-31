@@ -5,7 +5,6 @@
 # SECURE - CanCanCan ability file for configuring user authorization
 
 class Ability
-=begin
   include CanCan::Ability
 
   def initialize(user)
@@ -36,6 +35,5 @@ class Ability
     # define abilities for admins only
     can :manage, :all
   end
-=end
 
 end

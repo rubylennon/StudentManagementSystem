@@ -3,18 +3,22 @@ Ref description: tutorial on how to add search functionality for a resource-->
 <!--search results template-->
 <h1>Search Results</h1>
 
-<!--if there are no search results display the following-->
-<% if @users.count == 0 %>
-    <p>Sorry, no users matched your search query. Please try again </p>
-<!--else display the matching users-->
-<% else %>
-    <span> <%= @users.count %> Users(s) Found: </span>
-    <br>
-    <!--print users details in table-->
-    <table class="table table-hover table-striped">
-        <%= render :partial => 'users/table_headers' %>
-        <tbody>
-        <%= render @users %>
-        </tbody>
-    </table>
+<!--OWASP A01:2021 – Broken Access Control - https://owasp.org/Top10/A01_2021-Broken_Access_Control/
+SECURE - only logged in admin users can view user search results-->
+<% if current_user && current_user.admin? %>
+  <!--if there are no search results display the following-->
+  <% if @users.count == 0 %>
+      <p>Sorry, no users matched your search query. Please try again </p>
+  <!--else display the matching users-->
+  <% else %>
+      <span> <%= @users.count %> Users(s) Found: </span>
+      <br>
+      <!--print users details in table-->
+      <table class="table table-hover table-striped">
+          <%= render :partial => 'users/table_headers' %>
+          <tbody>
+          <%= render @users %>
+          </tbody>
+      </table>
+  <% end %>
 <% end %>

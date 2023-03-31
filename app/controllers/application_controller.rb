@@ -1,17 +1,14 @@
 class ApplicationController < ActionController::Base
-=begin
   # Prevent CSRF attacks by raising an exception.
   protect_from_forgery with: :null_session,
                        if: Proc.new { |c| c.request.format =~ %r{application/json} }
-=end
 
   # user access
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   # index action
   def index; end
 
-=begin
   # @Ref: https://github.com/michaelbanfield/devise-pwned_password
   # Ref description: guide on how to use devise devise-pwned_password gem
   # OWASP A07:2021 - https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/
@@ -25,6 +22,5 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_back fallback_location: root_path, alert: "Sorry, you do not have access to perform this action."
   end
-=end
 
 end

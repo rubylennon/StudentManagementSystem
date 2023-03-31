@@ -1,5 +1,14 @@
 class CourseModulesController < ApplicationController
+
   before_action :set_course_module, only: %i[ show edit update destroy ]
+
+  # OWASP A01:2021 – Broken Access Control - https://owasp.org/Top10/A01_2021-Broken_Access_Control/
+  # SECURE - CanCanCan method - checks authorization config before every action
+  load_and_authorize_resource
+
+  # OWASP A01:2021 – Broken Access Control - https://owasp.org/Top10/A01_2021-Broken_Access_Control/
+  # SECURE - user must authenticate before specified actions
+  before_action :authenticate_user!, only: %i[ edit update destroy ]
 
   # GET /course_modules or /course_modules.json
   def index
