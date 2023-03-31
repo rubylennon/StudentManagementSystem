@@ -20,16 +20,6 @@
   <%= link_to "New Course Module", new_course_module_path, :class => "m-2 btn btn-success btn-sm" %>
 </div>
 
-<!--# OWASP A01:2021 – Broken Access Control - https://owasp.org/Top10/A01_2021-Broken_Access_Control/
-# SECURE - edit delete and add buttons should only be visible to admins-->
-<%# if current_user && current_user.admin? %>
-<!--  <div>-->
-    <%#= link_to "Edit Course Module", edit_course_module_path(@course_module), :class => "m-2 btn btn-primary btn-sm"%>
-    <%#= button_to "Delete Course Module", @course_module, method: :delete, :class => "m-2 btn btn-danger btn-sm" %>
-    <%#= link_to "New Course Module", new_course_module_path, :class => "m-2 btn btn-success btn-sm" %>
-<!--  </div>-->
-<%# end %>
-
 <!--back to course modules page link-->
 <div>
   <%= link_to "Back to Course Module", course_modules_path, :class => "m-2 btn btn-secondary btn-sm"  %>

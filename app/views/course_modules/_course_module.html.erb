@@ -1,11 +1,14 @@
+<!--OWASP A03:2021 – Injection - https://owasp.org/Top10/A03_2021-Injection/
+INSECURE - using raw helper tag when printing comment text makes the app vulnerable to
+XSS (Cross Site Scripting) attacks-->
 <tr>
-  <td><%= link_to course_module.title, course_module %></td>
-  <td><%= course_module.code %></td>
-  <td><%= course_module.course %></td>
-  <td><%= course_module.year %></td>
-  <td><%= course_module.mode %></td>
-  <td><%= course_module.level %></td>
-  <td><%= course_module.lecturer %></td>
-  <td><%= course_module.description %></td>
-  <td><%= course_module.department %></td>
+  <td><%= raw link_to course_module.title, course_module %></td>
+  <td><%= raw course_module.code %></td>
+  <td><%= raw course_module.course %></td>
+  <td><%= raw course_module.year %></td>
+  <td><%= raw course_module.mode %></td>
+  <td><%= raw course_module.level %></td>
+  <td><%= raw course_module.lecturer %></td>
+  <td><%= raw course_module.description %></td>
+  <td><%= raw course_module.department %></td>
 </tr>

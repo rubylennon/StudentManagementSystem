@@ -7,23 +7,10 @@ ruby "3.1.2"
 # devise gem for user authentication
 gem 'devise'
 
-# Ruby interface to the PostgreSQL RDBMS
-gem 'pg'
-
-# OWASP A07:2021 - https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/
-# SECURE devise extension that checks user passwords against the PwnedPasswords dataset
-gem 'devise-pwned_password', '~> 0.1.9'
-
 # OWASP A02:2021 - https://owasp.org/Top10/A02_2021-Cryptographic_Failures/
 # INSECURE - deprecated hash function/cryptographic functions SHA1 in use for password
 # Encryption solution for salted-encryptors on Devise
 gem 'devise-encryptable', '~> 0.2.0'
-
-=begin
-# OWASP A01:2021 – Broken Access Control - https://owasp.org/Top10/A01_2021-Broken_Access_Control/
-# SECURE - CanCanCan authorization solution for Rails
-gem 'cancancan', '~> 3.4'
-=end
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"

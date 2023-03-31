@@ -5,15 +5,10 @@ Ref description: tutorial on how to add comments to a resource-->
 <div class="card mb-4 bg-light border border-dark">
   <article>
 
-  <!--OWASP A03:2021 – Injection - https://owasp.org/Top10/A03_2021-Injection/
+    <!--OWASP A03:2021 – Injection - https://owasp.org/Top10/A03_2021-Injection/
     INSECURE - using raw helper tag when printing comment text makes the app vulnerable to
     XSS (Cross Site Scripting) attacks-->
-    <p><%= raw  comment.content %></p>
-
-    <!--OWASP A03:2021 – Injection - https://owasp.org/Top10/A03_2021-Injection/
-    SECURE - removing raw helper tag when printing comment text makes the app less vulnerable to
-    XSS (Cross Site Scripting) attacks
-    <p><%#= comment.content %></p>-->
+    <p><%= raw comment.content %></p>
 
     <!-- print comment author -->
     <small>Created by <%= comment.user.try(:email) %> </small>

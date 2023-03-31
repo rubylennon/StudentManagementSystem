@@ -1,8 +1,9 @@
 <!--course module index page template-->
 <h1 class="p-3 m-3">Course Modules</h1>
 
-<!--create new course module button-->
-<%= link_to "New course module", new_course_module_path, :class => "m-2 btn btn-success btn-sm" %>
+<!--OWASP A01:2021 – Broken Access Control - https://owasp.org/Top10/A01_2021-Broken_Access_Control/
+INSECURE - any user can view create new course module button-->
+<%= link_to "Add New Course Module", new_course_module_path, :class => "m-2 btn btn-success btn-sm" %>
 
 <!--render course module details table-->
 <table class="table table-hover table-striped">
