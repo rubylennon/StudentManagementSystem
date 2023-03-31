@@ -20,6 +20,11 @@ class ApplicationController < ActionController::Base
     set_flash_message! :alert, :warn_pwned if resource.respond_to?(:pwned?) && resource.pwned?
     super
   end
+
+  # display toast alert if user attempts unauthorised action
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_back fallback_location: root_path, alert: "Sorry, you do not have access to perform this action."
+  end
 =end
 
 end
