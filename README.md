@@ -4,7 +4,7 @@
 
 ### StudentManagementSystem
 
-This README contains the steps necessary to get **Insecure Version** of the StudentManagementSystem application up and running.
+This README contains the steps necessary to get the **Insecure Version** of the StudentManagementSystem application up and running.
 
 ---
 
@@ -38,7 +38,7 @@ git clone https://github.com/rubylennon/StudentManagementSystem.git
 ```
 cd StudentManagementSystem
 ```
-5. Checkout the Insecure Branch using the following command:
+5. Checkout the **Insecure Branch** using the following command:
 ```
 git checkout "insecure"
 ```
@@ -50,60 +50,58 @@ git status
 --- 
 
 #### Database Creation
-Once you have checkout out the Insecure Branch using the steps above. Following the following steps to create the 
+Once you have checked out the Insecure Branch using the steps above, execute the following steps to create the 
 Insecure database using the Insecure Branch database schema:
 1. Using cmd, in the StudentManagementSystem local directory, execute the following rails command to recreate the 
 Gemfile.lock file:
 ```ruby
 bundle install
 ```
-2. Execute the following rails command to recreate the insecure database SQLite3 file using the database schema file:
+2. Execute the following rails command to create the insecure database SQLite3 file using the application database schema file:
 ```ruby
 rails db:schema:load
 ```
 3. This will create a development **SQLite3** database file called **development_insecure.sqlite3** in the application 
-database 
-folder (~/db)
+database folder (~/db)
 
 ---
 
 #### How to run the Rails Server
-Once you completed the above steps, complete the following steps to run the Rails Server:
-1. Using cmd, in the StudentManagementSystem local directory, execute the following rails command to recreate the
-   Gemfile.lock file again:
+Once you have completed the above steps, execute the following steps to run the Rails Server:
+1. Using cmd, in the StudentManagementSystem local directory, execute the following rails command to recreate the 
+Gemfile.lock file again:
 ```ruby
 bundle install
 ```
-2.  Execute the following rails command to run the local Rails server (if there is any issues with the step, try 
-rerunning the `bundle install` command first and then trying again):
+2.  Execute the following Rails command to run the local Rails Server (if there are any issues with this step, try 
+rerunning the `bundle install` command again and then try to run the server again):
 ```ruby
 rails s
 ```
-3. Navigate to the following URL to access the application using an internet browser:
+3. Navigate to the following URL to access the running application using an internet browser:
 http://127.0.0.1:3000
 
 ---
 
-#### How to update user to Admin or Standard user:
+#### How to update a user to an Admin or Standard user:
 1. Go to the following URL and register a new user:
    http://127.0.0.1:3000/users/sign_up
-2. Using cmd, in the StudentManagementSystem local directory, execute the following rails command to open the 
+2. Using cmd, in the StudentManagementSystem local directory, execute the following Rails command to open the 
 Rails console:
 ```ruby
 rails c
 ```
-3. Execute the following rails command to list all users in the database - keep note of ID of the user you 
-want to update
-   Rails console:
+3. Execute the following Rails command to list all users in the database - keep note of the ID of the user you 
+want to update:
 ```ruby
 User.all
 ```
-4. Updating Standard User to Admin User - Execute the following rails command to update the user to an admin (replace the 1 below with the user ID you 
+4. Updating a Standard User to an Admin User - Execute the following rails command to update the user to an admin (replace the 1 below with the user ID you 
 want to update):
 ```ruby
 User.find(1).update(admin:true)
 ```
-5. Updating Admin User to Standard User - Execute the following rails command to update the user to an admin (replace the 1 below with the user ID you
+5. Updating Admin User to Standard User - Execute the following rails command to update the user to a standard user (replace the 1 below with the user ID you
    want to update):
 ```ruby
 User.find(1).update(admin:false)
