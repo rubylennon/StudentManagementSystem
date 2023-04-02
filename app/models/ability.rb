@@ -24,6 +24,7 @@ class Ability
 
   def guest_abilities
     # define abilities for visitors only
+    can :create, User
   end
 
   def authenticated_abilities
