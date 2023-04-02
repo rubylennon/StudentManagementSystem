@@ -63,6 +63,16 @@ rails db:schema:load
 ```
 3. This will create a development **SQLite3** database file called **development_secure.sqlite3** in the application
    database folder (~/db)
+4. Initialise Active Record Encyrption by executing the following command:
+```ruby
+rails db:encryption:init
+```
+5. Once you execute the above command the following keys will be returned in the console (the keys need to be added to a):
+active_record_encryption:
+  primary_key: <key>
+  deterministic_key: <key>
+  key_derivation_salt: <salt>
+6. Copy the keys from the console, and execute the following command to open the 
 
 ---
 
