@@ -75,7 +75,7 @@ active_record_encryption:
   deterministic_key: LevsB731ec0KqBWnr7Yl6iXK6ahAfTaK
   key_derivation_salt: pCNhGhQKGkWPHbFt1aojFGaH8KlD9iZz
 ````
-6. Once you have copied the generated keys from the console, execute the following commands to edot the encrypted credentials file.
+6. Once you have copied the generated keys from the console, execute the following commands to edit the encrypted credentials file.
 7. In cmd, set your preferred text editor, the following will set Notepad as the default editor:
 ```
 SET EDITOR="C:\WINDOWS\system32\notepad.exe --wait"
