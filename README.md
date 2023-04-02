@@ -82,7 +82,7 @@ active_record_encryption:
 SET EDITOR="C:\WINDOWS\system32\notepad.exe --wait"
 ```
 8. Then run the following Rails command to open the encrypted `credentials.yml.enc` file using notepad:
-```
+```ruby
 bundle exec rails credentials:edit
 ```
 9. Once the `credentials.yml.enc` file opens in Notepad, add the keys you copied in step 5. Once added save the file. Example of how the keys you have generated should be added:
