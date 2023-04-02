@@ -78,9 +78,9 @@ active_record_encryption:
 6. Once you have copied the generated keys from the console, execute the following commands to edit the encrypted credentials file.
 7. In cmd, set your preferred text editor, the following will set Notepad++ as the default editor:
 ```
-SET EDITOR="C:\Program Files\Notepad++\notepad++.exe --wait"
+SET EDITOR="C:\Program Files\Notepad++\notepad++.exe"
 ```
-This command will set Notepad as the default editor etc.:
+Or this command will set Notepad as the default editor etc.:
 ```
 SET EDITOR="C:\WINDOWS\system32\notepad.exe --wait"
 ```
