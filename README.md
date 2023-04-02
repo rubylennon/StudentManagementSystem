@@ -76,9 +76,9 @@ active_record_encryption:
   key_derivation_salt: pCNhGhQKGkWPHbFt1aojFGaH8KlD9iZz
 ````
 6. Once you have copied the generated keys from the console, execute the following commands to edit the encrypted credentials file.
-7. In cmd, set your preferred text editor, the following will set Notepad as the default editor:
+7. In cmd, set your preferred text editor, the following will set Notepad++ as the default editor:
 ```
-SET EDITOR="C:\WINDOWS\system32\notepad.exe --wait"
+SET EDITOR="C:\Program Files\Notepad++\notepad++.exe"
 ```
 8. Then run the following Rails command to open the encrypted `credentials.yml.enc` file using notepad:
 ```ruby
