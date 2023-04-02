@@ -67,8 +67,7 @@ rails db:schema:load
 ```ruby
 rails db:encryption:init
 ```
-5. Once you execute the above command the following keys will be returned in the console (the keys need to be added to a):
-active_record_encryption. This command will generate a primary_key, deterministic_key and key_derivation_salt. Copy the response.
+5. Once you have executed the above command the following keys will be returned in the console: primary_key, deterministic_key and key_derivation_salt. Copy the response from the console.
 * Example response:
 ```
 active_record_encryption:
