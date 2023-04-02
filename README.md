@@ -86,7 +86,9 @@ SET EDITOR="C:\WINDOWS\system32\notepad.exe --wait"
 bundle exec rails credentials:edit
 ```
 9. Once the `credentials.yml.enc` file opens in Notepad, add the keys you copied in step 5. Once added save the file. Example of how the keys you have generated should be added:
+
 ![image](https://user-images.githubusercontent.com/56481222/229324029-da030fe7-1d0a-47bd-b8bf-c6cc2d66de77.png)
+
 10. Once you have added the keys to the `credentials.yml.enc` file, Active Model Encryption will be set up in the application which will allow for user records data to be encrypted and decyrpted as required.
 
 ---
