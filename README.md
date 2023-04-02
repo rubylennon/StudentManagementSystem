@@ -24,6 +24,7 @@ The following must be installed on your PC to execute the following steps:
 * Rails (Rails 7 or higher)
 * Bundler (Bundler 2.4 or higher)
 * SQLite3
+* Notepad++
 
 ---
 
