@@ -15,25 +15,55 @@ class UsersController < ApplicationController
 
   # show action
   def show
-    @user = User.find(params[:id])
+    if current_user.admin?
+      @user = User.find(params[:id])
+    else
+      @user = User.find(params[:id])
+      if current_user != @user
+        redirect_to root_path, notice: "Sorry, but you are only allowed to view your own profile page."
+      end
+    end
   end
 
   # edit action
   def edit
     # OWASP A01:2021 – Broken Access Control - https://owasp.org/Top10/A01_2021-Broken_Access_Control/
     # SECURE - edit page user ID is set to currently logged in users ID
-    @user = current_user
+    if current_user.admin?
+      @user = User.find(params[:id])
+    else
+      @user = User.find(params[:id])
+      if current_user != @user
+        redirect_to root_path, notice: "Sorry, but you are only allowed to edit your own profile page."
+      end
+    end
   end
 
   # update action
   def update
     # OWASP A01:2021 – Broken Access Control - https://owasp.org/Top10/A01_2021-Broken_Access_Control/
     # SECURE - current user can only update their own account details
-    respond_to do |format|
-      if current_user.update(user_params)
-        format.html { redirect_to current_user, notice: 'You successfully updated your profile.' }
-      else
-        format.html { render :edit }
+    if current_user.admin?
+      @user = User.find(params[:id])
+      @user.update(user_params)
+      respond_to do |format|
+        if @user.update(user_params)
+          format.html { redirect_to @user, notice: 'You successfully updated your profile.' }
+        else
+          format.html { render :edit }
+        end
+      end
+    else
+      @user = User.find(params[:id])
+      if current_user != @user
+        redirect_to root_path, notice: "Sorry, but you are only allowed to update your own profile page."
+      end
+      respond_to do |format|
+        if current_user.update(user_params)
+          format.html { redirect_to current_user, notice: 'You successfully updated your profile.' }
+        else
+          format.html { render :edit }
+        end
       end
     end
   end

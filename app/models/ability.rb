@@ -29,6 +29,11 @@ class Ability
   def authenticated_abilities
     # define abilities for all logged in users
     can :manage, User
+    can :read, CourseModule
+    cannot :edit, CourseModule
+    cannot :create, CourseModule
+    cannot :index, User
+    cannot :search, User
   end
 
   def admin_abilities
