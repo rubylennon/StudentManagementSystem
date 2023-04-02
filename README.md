@@ -49,7 +49,7 @@ git status
 
 --- 
 
-#### Database Creation
+#### Database Creation and Encyrption Setup
 Once you have checked out the Secure Branch using the steps above, execute the following steps to create the
 Secure database using the Secure Branch database schema:
 1. Using cmd, in the StudentManagementSystem local directory, execute the following rails command to recreate the
@@ -68,11 +68,26 @@ rails db:schema:load
 rails db:encryption:init
 ```
 5. Once you execute the above command the following keys will be returned in the console (the keys need to be added to a):
+active_record_encryption. This command will generate a primary_key, deterministic_key and key_derivation_salt. Copy the response.
+* Example response:
+```
 active_record_encryption:
-  primary_key: <key>
-  deterministic_key: <key>
-  key_derivation_salt: <salt>
-6. Copy the keys from the console, and execute the following command to open the 
+  primary_key: JG5IZXpprTgC4JTXxuQlpRd1n0nuL4KG
+  deterministic_key: LevsB731ec0KqBWnr7Yl6iXK6ahAfTaK
+  key_derivation_salt: pCNhGhQKGkWPHbFt1aojFGaH8KlD9iZz
+```
+6. Once you have copied the generated keys from the console, execute the following commands to edot the encrypted credentials file.
+7. In cmd, set your preferred text editor, the following will set Notepad as the default editor:
+```
+SET EDITOR="C:\WINDOWS\system32\notepad.exe --wait"
+```
+8. Then run the following Rails command to open the encrypted `credentials.yml.enc` file using notepad:
+```
+bundle exec rails credentials:edit
+```
+9. Once the `credentials.yml.enc` file opens in Notepad, add the keys you copied in step 5. Once added save the file. Example of how the keys you have generated should be added:
+![image](https://user-images.githubusercontent.com/56481222/229324029-da030fe7-1d0a-47bd-b8bf-c6cc2d66de77.png)
+10. Once you have added the keys to the `credentials.yml.enc` file, Active Model Encryption will be set up in the application which will allow for user records data to be encrypted and decyrpted as required.
 
 ---
 
