@@ -67,14 +67,14 @@ rails db:schema:load
 ```ruby
 rails db:encryption:init
 ```
-5. Once you have executed the above command the following keys will be returned in the console: primary_key, deterministic_key and key_derivation_salt. Copy the response from the console.
+5. Once you have executed the above command the following keys will be returned in the console: primary_key, deterministic_key and key_derivation_salt. Copy the response from the console - the following is just an example of a response:
 * Example response:
-```
+````
 active_record_encryption:
   primary_key: JG5IZXpprTgC4JTXxuQlpRd1n0nuL4KG
   deterministic_key: LevsB731ec0KqBWnr7Yl6iXK6ahAfTaK
   key_derivation_salt: pCNhGhQKGkWPHbFt1aojFGaH8KlD9iZz
-```
+````
 6. Once you have copied the generated keys from the console, execute the following commands to edot the encrypted credentials file.
 7. In cmd, set your preferred text editor, the following will set Notepad as the default editor:
 ```
